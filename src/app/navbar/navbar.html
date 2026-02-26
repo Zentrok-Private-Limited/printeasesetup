@@ -1,0 +1,36 @@
+<nav
+  class="h-22 fixed top-0 left-0 w-full z-50
+         flex items-center justify-between px-6 text-white
+         transition-all px-20 duration-300"
+  [ngClass]="{
+    'bg-[#282B3A]': !scrolled,
+    'bg-[#262A39]/90 backdrop-blur': scrolled
+  }"
+>
+  <!-- Logo -->
+  <h1 class="text-[20px] font-semibold">
+    <a href="#">Printeasesetup</a>
+  </h1>
+
+  <!-- Menu -->
+  <ul class="flex items-center gap-6 text-sm">
+    <li><a class="text-[16px] hover:text-blue-300">Home</a></li>
+    <li><a class="text-[16px] hover:text-blue-300">About</a></li>
+    <li><a class="text-[16px] hover:text-blue-300">Strategies</a></li>
+    <li><a class="text-[16px] hover:text-blue-300">Contact</a></li>
+
+    <!-- Phone -->
+    <li class="border px-4 py-1 rounded-full hover:border-blue-300">
+      <a href="tel:+919876543210" class="flex items-center gap-2 hover:text-blue-300">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3l2 5-2 1c1 3 3 5 6 6l1-2 5 2v3a2 2 0 01-2 2C9 20 4 15 4 7V5z" />
+        </svg>
+      </a>
+    </li>
+
+    <li class="bg-blue-800 px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+      <a>Get Quote</a>
+    </li>
+  </ul>
+</nav>
