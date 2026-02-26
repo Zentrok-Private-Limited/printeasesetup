@@ -1,464 +1,246 @@
-<section class="relative min-h-screen flex items-center
-         bg-[#051124] 
-         text-white overflow-hidden">
+<section class="relative py-24 bg-[#eef3f9] overflow-hidden">
 
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <!-- blurred background image effect -->
+  <div class="absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-20"></div>
 
-        <!-- LEFT CONTENT -->
-        <div>
-            <div class="inline-flex items-center mt-19 bg-blue-600/20 text-blue-400 px-4 py-1 rounded-full text-[13px]">
-                <img src="/grow.png" class="w-8 h-8" alt="Grow icon">
-                <span>Growth-Driven Digital Agency</span>
-            </div>
-            <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
-                Turn Clicks into <br />
-                <span class="text-sky-400">Customers</span><br />
-                with Smart Digital<br />
-                Systems
-            </h1>
+  <div class="relative z-10 max-w-7xl mx-auto px-2 text-center">
 
-            <p class="mt-6 text-gray-300 max-w-xl">
-                We design, build, and optimize digital ecosystems that attract,
-                convert, and scale your business — powered by strategy, data,
-                and automation.
-            </p>
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-5xl font-[1000] text-gray-900">
+      Download & Install Printer Drivers
+    </h2>
 
-            <!-- Buttons -->
-            <div class="mt-8 flex flex-wrap gap-4">
-                <button class="px-6 py-3 rounded-full bg-sky-500 hover:shadow-lg
-                 text-black font-semibold transition flex items-center gap-2">
-                    Start Your Growth Journey →
-                </button>
+    <p class="mt-3 text-gray-600 max-w-2xl text-lg font-[800] mx-auto">
+      Choose your brand to get the correct driver, firmware, and setup guide.
+    </p>
 
-                <button class="px-6 py-3 rounded-full border border-sky-400
-                 text-sky-400 hover:bg-sky-400 hover:text-black
-                 transition">
-                    View Our Services
-                </button>
-            </div>
+    <!-- Cards -->
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-            <!-- STATS -->
-            <div class="mt-12 mb-10 flex gap-10">
-                <div>
-                    <p class="text-sky-400 text-xl font-bold">200+</p>
-                    <p class="text-gray-400 text-sm">Projects</p>
-                </div>
-                <div>
-                    <p class="text-sky-400 text-xl font-bold">95%</p>
-                    <p class="text-gray-400 text-sm">Client Retention</p>
-                </div>
-                <div>
-                    <p class="text-sky-400 text-xl font-bold">5+ Years</p>
-                    <p class="text-gray-400 text-sm">Experience</p>
-                </div>
-            </div>
+      <div *ngFor="let brand of printerBrands" class="bg-white rounded-3xl p-8
+               shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+               transition hover:-translate-y-1">
+
+        <!-- Logo -->
+        <div class="h-60 flex items-center justify-center mb-2">
+          <img [src]="brand.logo" [alt]="brand.name" class="max-h-58 object-contain" />
         </div>
 
-        <!-- RIGHT IMAGE -->
-        <div class="relative flex justify-center lg:justify-end">
-            <img src="/grow.png" alt="Digital Team Illustration" class="w-full max-w-md xl:max-w-lg drop-shadow-2xl" />
-        </div>
-
-    </div>
-</section>
-<section class="relative py-24">
-
-    <div class="max-w-6xl mx-auto px-6 text-center bg-[#e1eff7] py-15">
-
-        <!-- Heading -->
-        <h2 class="text-[30px] md:text-[30px] font-[800] text-[#0b1220]">
-            From Click to Conversion — Simplified
-        </h2>
-
-        <p class="mt-4 max-w-2xl mx-auto text-gray-600">
-            Everything you need to attract, convert, and scale —
-            engineered into a single growth system.
+        <p class="text-sm text-gray-700 mb-5 font-[800]">
+          Printer Setup
         </p>
 
-        <!-- Cards -->
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a [href]="brand.link" class="block w-full py-3 rounded-md
+                 bg-blue-600 text-white font-semibold text-sm
+                 hover:bg-blue-700 transition">
+          {{ brand.buttonText }}
+        </a>
 
-            <!-- Card 1 -->
-            <div class="bg-white rounded-3xl p-8 text-left
-               hover:-shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition">
-                <div class="w-14 h-14 flex items-center justify-center
-            rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400
-            text-white mb-6 text-xl">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
+      </div>
 
-                <h3 class="text-xl font-semibold text-[#0b1220] mb-3">
-                    Clarity Through Data
-                </h3>
-
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    We turn raw data into clear decisions. Every strategy is backed
-                    by insights that remove guesswork and maximize ROI.
-                </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white rounded-3xl p-8 text-left
-               hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition">
-                <div class="w-14 h-14 flex items-center justify-center
-            rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400
-            text-white mb-6 text-xl">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-[#0b1220] mb-3">
-                    Conversion-Focused Traffic
-                </h3>
-
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Paid ads, SEO, and funnels engineered to attract the right
-                    audience — and convert them at scale.
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white rounded-3xl p-8 text-left
-               hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition">
-                <div class="w-14 h-14 flex items-center justify-center
-            rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400
-            text-white mb-6 text-xl">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
-
-                <h3 class="text-xl font-semibold text-[#0b1220] mb-3">
-                    Scalable Growth Systems
-                </h3>
-
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Not one-off campaigns. We build repeatable growth engines
-                    that scale with your business month after month.
-                </p>
-            </div>
-
-        </div>
     </div>
+  </div>
 </section>
 
-<section class="bg-white">
-    <div class="max-w-6xl mx-auto px-6 items-center ">
-        <!-- TOP HEADING -->
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#0b1220]">
-                Solutions Designed for Growth
-            </h2>
+<section class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-4">
 
-            <p class="mt-4 text-gray-600 text-lg leading-relaxed">
-                From awareness to conversion, we deliver digital solutions that move
-                businesses forward with clarity and confidence.
-            </p>
-        </div>
-        <!-- CARDS -->
-        <div class="mt-20">
-
-            <div class="lg:col-span-1">
-                <h3 class="text-2xl font-bold text-[#0b1220] mb-4">
-                    What We Do Best
-                </h3>
-
-                <p class="text-gray-600 leading-relaxed">
-                    We combine strategy, design, and technology to deliver digital
-                    solutions that create real business impact.
-                </p>
-                <a href="#">Learn More -></a>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <div *ngFor="let card of serviceCards" class="bg-white rounded-2xl p-8
-           border border-gray-100
-           shadow-[0_15px_40px_rgba(0,0,0,0.06)]
-           transition-all duration-300
-           hover:-translate-y-1
-           hover:border-blue-500
-           hover:shadow-[0_20px_50px_rgba(59,130,246,0.35)]">
-
-                    <!-- SVG ICON -->
-                    <div class="w-14 h-14 mb-6 flex items-center justify-center
-             rounded-xl bg-blue-100 text-blue-600">
-                        <i [class]="card.iconClass"></i>
-                    </div>
-
-                    <h4 class="text-lg font-semibold mb-2">
-                        {{ card.title }}
-                    </h4>
-
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        {{ card.description }}
-                    </p>
-
-                    <a [href]="card.link" class="inline-block mt-4 text-sm font-medium text-blue-600 hover:underline">
-                        Learn More →
-                    </a>
-
-                </div>
-
-            </div>
-            <div class="bg-[#051124] mt-12 mb-10 flex md:gap-30 p-8 rounded-3xl justify-center">
-                <div>
-                    <p class="text-white text-center text-3xl font-bold">120+</p>
-                    <p class="text-gray-400 text-sm">Projects Delivered</p>
-                </div>
-                <div>
-                    <p class="text-white text-center text-3xl font-bold">98%</p>
-                    <p class="text-gray-400 text-sm">Client Satisfaction</p>
-                </div>
-                <div>
-                    <p class="text-white text-center text-3xl font-bold">6+ Years</p>
-                    <p class="text-gray-400 text-sm">Industry Experience</p>
-                </div>
-                <div>
-                    <p class="text-white text-center text-3xl font-bold">24/7</p>
-                    <p class="text-gray-400 text-sm">Support Availability</p>
-                </div>
-            </div>
-
-        </div>
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900">
+        Troubleshooting Checklist (Try These Steps First)
+      </h2>
+      <p class="mt-3 text-gray-500 max-w-2xl mx-auto text-sm">
+        Most printing issues are caused by temporary system states, connection mismatches,
+        or queue conflicts. Follow the steps below in order and stop once the issue is resolved.
+      </p>
     </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- LEFT -->
+      <div class="lg:col-span-2 space-y-4">
+
+        <div *ngFor="let step of steps" class="border border-gray-200 rounded-xl p-2 transition-all duration-300"
+          [class.shadow-sm]="activeStep === step.id">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between cursor-pointer" (click)="toggleStep(step.id)">
+            <div class="flex items-center gap-4">
+              <span class="w-8 h-8 flex items-center justify-center rounded-full font-semibold" [ngClass]="
+                  activeStep === step.id
+                    ? 'bg-blue-100 text-blue-600'
+                    : 'bg-gray-100 text-gray-500'
+                ">
+                {{ step.id }}
+              </span>
+
+              <h4 class="font-[800] text-[12px] text-gray-900">
+                {{ step.title }}
+              </h4>
+            </div>
+
+            <span class="text-sm text-blue-600">
+              {{ activeStep === step.id ? 'Hide details −' : 'View details +' }}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div *ngIf="activeStep === step.id && step.description"
+            class="mt-4 ml-12 text-[11px] text-gray-600 space-y-2">
+            <p *ngFor="let line of step.description">
+              {{ line }}
+            </p>
+            <p class="text-gray-400">
+              {{ step.subDescription }}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT INFO -->
+      <div class="border rounded-xl p-6 bg-gray-50 h-fit">
+        <h4 class="font-semibold text-gray-900 mb-3">
+          If the issue continues
+        </h4>
+
+        <p class="text-sm text-gray-600 mb-4">
+          Persistent issues may involve driver conflicts, permissions,
+          firmware, or network configuration.
+        </p>
+
+        <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+          <li>Try a different document or application</li>
+          <li>Check device status (offline, paused, error)</li>
+          <li>Confirm the exact model name on the device</li>
+        </ul>
+
+        <p class="mt-4 text-xs text-gray-400">
+          Complete steps in order for best results.
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="min-h-screen bg-[#051124] flex items-center justify-center text-white">
+<section class="bg-[#f5f8fd] py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-    <!-- CONTENT CARD WITH GLOW -->
-    <div class="relative overflow-hidden z-10 max-w-6xl mx-auto
-           px-6 md:px-50 py-30
-           text-center 
-           bg-gradient-to-br from-[#020617] via-[#071a2f] to-[#041225]">
+      <!-- LEFT CONTENT -->
+      <div>
 
-        <!-- CARD GLOWS (ONLY INSIDE DIV) -->
-        <div class="absolute -left-40 -top-40 w-[500px] h-[500px] bg-green-500/20 blur-3xl rounded-full"></div>
-        <div class="absolute -right-40 top-1/2 w-[500px] h-[500px] bg-blue-500/20 blur-3xl rounded-full"></div>
+        <!-- Badge -->
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-sm text-xs font-semibold text-gray-700">
+          <span class="w-4 h-4 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">+</span>
+          QUICK ASSISTANCE
+        </span>
 
-        <!-- CONTENT -->
-        <div class="relative z-10">
+        <!-- Heading -->
+        <h1 class="mt-6 text-4xl font-extrabold text-gray-900 leading-tight">
+          Continue setup faster with a
+          <span class="text-blue-600">model-matched</span> flow
+        </h1>
 
-            <!-- pill -->
-            <div class="inline-block mb-6 px-4 py-2 rounded-full
-                  bg-white/10 text-sm text-gray-200 backdrop-blur">
-                Growth • Strategy • Performance
+        <!-- Sub text -->
+        <p class="mt-4 text-gray-600 max-w-xl">
+          Choose a brand, then proceed with your model details. We’ll route you to the next step
+          that fits your device and setup.
+        </p>
+
+        <!-- Brand buttons -->
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button *ngFor="let brand of brands" (click)="selectBrand(brand)"
+            class="px-3 py-2 rounded-full border text-[10px] font-[800] transition" [ngClass]="
+              selectedBrand === brand
+                ? 'bg-blue-100 border-blue-500 text-blue-700'
+                : 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50'
+            ">
+            {{ brand }}
+          </button>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="mt-8 space-y-4 max-w-xl">
+
+          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+            <span class="text-green-500">🧩</span>
+            <div>
+              <h4 class="font-[800] text-gray-900 text-[12px]">Model-based routing</h4>
+              <p class="text-xs text-gray-500">
+                Less guessing, quicker next step
+              </p>
             </div>
+          </div>
 
-            <!-- heading -->
-            <h1 class="text-3xl md:text-3xl lg:text-3xl font-[800] leading-tight">
-                Build Digital Experiences That
-                <span class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-                    Drive Revenue
-                </span>
-            </h1>
-
-            <!-- sub text -->
-            <p class="mt-5 max-w-3xl mx-auto text-gray-300 text-sm leading-relaxed">
-                We help ambitious brands scale faster with conversion-focused design,
-                data-driven strategy, and performance marketing that delivers measurable results.
-            </p>
-
-            <!-- buttons -->
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <button class="relative px-8 py-2 rounded-full font-semibold text-[12px] text-white
-         bg-gradient-to-r from-green-400 to-blue-500
-         shadow-[0_0_20px_rgba(59,130,246,0.45)]
-         hover:shadow-[0_0_35px_rgba(59,130,246,0.8)]
-         hover:scale-105
-         transition-all duration-300">
-                    Explore Services
-                </button>
-
-                <button class="px-8 py-2 rounded-full text-[12px] font-semibold
-                 border border-white/30 text-white
-                 hover:bg-white/10 transition">
-                    Book a Free Consultation
-                </button>
+          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+            <span class="text-blue-500">🔍</span>
+            <div>
+              <h4 class="font-[800] text-gray-900 text-[12px]">Clear instructions</h4>
+              <p class="text-xs text-gray-500">
+                Simple steps that are easy to follow
+              </p>
             </div>
+          </div>
+
+          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+            <span class="text-orange-500">⚡</span>
+            <div>
+              <h4 class="font-[800] text-gray-900 text-[12px]">Quick follow-up</h4>
+              <p class="text-xs text-gray-500">
+                Submit once, continue smoothly
+              </p>
+            </div>
+          </div>
 
         </div>
+
+        <!-- CTA -->
+        <button
+          class="mt-8 inline-flex items-center justify-center px-5 py-2 rounded-xl bg-blue-600 text-[12px] text-white font-semibold hover:bg-blue-700 transition">
+          Continue with {{ selectedBrand }}
+        </button>
+
+        <!-- Footer note -->
+        <p class="mt-4 text-xs text-gray-500 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          Average response: a few minutes
+        </p>
+
+      </div>
+
+      <!-- RIGHT IMAGE CARD -->
+      <div class="relative flex flex-col gap-4">
+
+        <!-- IMAGE WRAPPER -->
+        <div class="relative rounded-2xl overflow-hidden shadow-lg h-[360px]">
+          <img src="printer.avif" alt="Printer" class="w-full h-full object-cover" />
+
+          <!-- Overlay (ONLY inside image) -->
+          <div class="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/70 to-transparent p-4">
+            <h4 class="text-white font-semibold text-sm">
+              Stuck mid-setup?
+            </h4>
+            <p class="text-xs text-gray-200">
+              Continue with a guided flow in seconds.
+            </p>
+          </div>
+        </div>
+
+        <!-- TIP BOX (OUTSIDE IMAGE) -->
+        <div class="bg-white border rounded-xl p-4 text-sm">
+          <strong>Tip</strong>
+          <p class="text-gray-600 mt-1">
+            Keep your model number handy (from the label on the device or box).
+            It helps match the correct setup path.
+          </p>
+        </div>
+
+      </div>
+
     </div>
-</section>
-<section class="py-20 bg-[#f8fbff]">
-    <div class="max-w-6xl mx-auto px-6">
-        <!-- TOP HEADING -->
-        <div class="max-w-4xl mb-30 mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-[800] text-[#0b1220]">
-                Our Proven Growth Framework
-            </h2>
-
-            <p class="mt-4 text-gray-600 leading-relaxed">
-                Every successful project follows a clear, repeatable system that transforms ideas into measurable
-                outcomes.
-            </p>
-        </div>
-        <!-- sub HEADING -->
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-blue-600">
-                How We Work
-            </h2>
-
-            <p class="mt-4 text-gray-600 text-lg leading-relaxed">
-                A transparent, proven workflow designed to deliver clarity, speed,
-                and measurable outcomes at every stage.
-            </p>
-        </div>
-        <!-- STEPS -->
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
-
-            <div *ngFor="let step of workSteps" class="relative bg-white rounded-3xl p-8
-           shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-
-                <!-- step pill -->
-                <div class="absolute -top-4 right-8">
-                    <span class="px-5 py-2 text-sm font-semibold text-white
-               bg-blue-600 rounded-full shadow">
-                        Step {{ step.step }}
-                    </span>
-                </div>
-
-                <!-- icon -->
-                <div class="w-14 h-14 mb-6 flex items-center justify-center
-             rounded-2xl bg-blue-100 text-blue-600 text-2xl">
-                    <i [class]="step.iconClass"></i>
-                </div>
-
-                <!-- title -->
-                <h3 class="text-xl font-bold text-[#0b1220] mb-3">
-                    {{ step.title }}
-                </h3>
-
-                <!-- description -->
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    {{ step.description }}
-                </p>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="py-10">
-    <div class="max-w-7xl mx-auto px-6">
-
-        <!-- TOP TITLE -->
-        <div class="text-center max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#0b1220]">
-                Strategies That Actually Work
-            </h2>
-
-            <p class="mt-4 text-gray-600 text-lg leading-relaxed">
-                We combine data, creativity, and automation to build strategies
-                that scale — not just look good on paper.
-            </p>
-        </div>
-
-        <!-- INNER LIGHT SECTION -->
-        <div class="mt-20 bg-[#eef3ff] rounded-3xl py-20 px-6">
-
-            <div class="text-center max-w-3xl mx-auto">
-                <h3 class="text-2xl md:text-3xl font-bold text-blue-600">
-                    Next-Level Strategies for Sustainable Growth
-                </h3>
-
-                <p class="mt-4 text-gray-600 leading-relaxed">
-                    Our premium approach combines analytics, creative thinking,
-                    and automation to design strategies that consistently outperform.
-                </p>
-            </div>
-
-            <!-- CARDS -->
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
-
-                <!-- CARD 1 -->
-                <div *ngFor="let card of strategyCards" class="bg-white rounded-3xl p-10 text-center
-         border border-blue-100
-         shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-         transition hover:-translate-y-1">
-
-                    <!-- ICON -->
-                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center
-           rounded-full bg-blue-100 text-blue-600 text-2xl">
-                        <i [class]="card.iconClass"></i>
-                    </div>
-
-                    <!-- TITLE -->
-                    <h4 class="text-lg font-semibold text-[#0b1220] mb-3">
-                        {{ card.title }}
-                    </h4>
-
-                    <!-- DESCRIPTION -->
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        {{ card.description }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-white py-16">
-    <div class="max-w-6xl mx-auto px-6">
-
-        <!-- TOP HEADING -->
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-[#0b1220]">
-                Why Businesses Choose Us
-            </h2>
-
-            <p class="mt-3 text-gray-600 text-lg">
-                We don’t just deliver services — we become your long-term growth partner.
-            </p>
-        </div>
-
-        <!-- LIGHT BAND -->
-        <div class="mt-12 bg-[#f5f7ff] rounded-3xl px-8 py-8">
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-                <!-- LEFT -->
-                <div class="lg:col-span-6">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-3">
-                        Why Choose Our Agency
-                    </h3>
-
-                    <p class="text-gray-600 mb-3">
-                        We don’t just deliver services — we create partnerships.
-                    </p>
-
-                    <p class="text-gray-600">
-                        Our clients choose us because we combine expertise, agility,
-                        and trust to deliver measurable success.
-                    </p>
-                </div>
-
-                <!-- RIGHT -->
-                <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <div *ngFor="let card of whyChooseCards" class="bg-white rounded-2xl p-6 text-center
-           shadow-[0_15px_40px_rgba(0,0,0,0.08)]
-           transition hover:-translate-y-1">
-
-                        <!-- ICON -->
-                        <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center
-             rounded-full bg-gradient-to-br from-blue-500 to-indigo-500
-             text-white text-xl">
-                            <i [class]="card.iconClass"></i>
-                        </div>
-
-                        <!-- TITLE -->
-                        <h4 class="text-sm font-semibold mb-2">
-                            {{ card.title }}
-                        </h4>
-
-                        <!-- DESCRIPTION -->
-                        <p class="text-gray-600 text-[12px]">
-                            {{ card.description }}
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+  </div>
 </section>

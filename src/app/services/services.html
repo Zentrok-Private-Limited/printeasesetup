@@ -1,0 +1,70 @@
+<section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 items-center ">
+        <!-- CARDS -->
+        <div class="mt-20">
+
+            <div class="lg:col-span-1 mb-12">
+                <h3 class="text-2xl font-bold text-[#0b1220] mb-4">
+                    What We Do Best
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    We combine strategy, design, and technology to deliver digital
+                    solutions that create real business impact.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div *ngFor="let card of serviceCards" class="bg-white rounded-2xl p-8
+           border border-gray-100
+           shadow-[0_15px_40px_rgba(0,0,0,0.06)]
+           transition-all duration-300
+           hover:-translate-y-1
+           hover:border-blue-500
+           hover:shadow-[0_20px_50px_rgba(59,130,246,0.35)]">
+
+                    <!-- SVG ICON -->
+                    <div class="w-14 h-14 mb-6 flex items-center justify-center
+             rounded-xl bg-blue-100 text-blue-600">
+                        <i [class]="card.iconClass"></i>
+                    </div>
+
+                    <h4 class="text-lg font-semibold mb-2">
+                        {{ card.title }}
+                    </h4>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        {{ card.description }}
+                    </p>
+
+                    <a [href]="card.link" class="inline-block mt-4 text-sm font-medium text-blue-600 hover:underline">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+            <div class="bg-[#051124] mt-12 mb-10 flex md:gap-30 p-8 rounded-3xl justify-center">
+                <div>
+                    <p class="text-white text-center text-3xl font-bold">120+</p>
+                    <p class="text-gray-400 text-sm">Projects Delivered</p>
+                </div>
+                <div>
+                    <p class="text-white text-center text-3xl font-bold">98%</p>
+                    <p class="text-gray-400 text-sm">Client Satisfaction</p>
+                </div>
+                <div>
+                    <p class="text-white text-center text-3xl font-bold">6+ Years</p>
+                    <p class="text-gray-400 text-sm">Industry Experience</p>
+                </div>
+                <div>
+                    <p class="text-white text-center text-3xl font-bold">24/7</p>
+                    <p class="text-gray-400 text-sm">Support Availability</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
