@@ -1,0 +1,77 @@
+<!-- HEADER -->
+<header class="w-full bg-white">
+    <div class="max-w-5xl mx-auto px-2 py-0.5 flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <img src="/hp.png" alt="HP" class="h-15 w-15" />
+        </div>
+
+        <!-- Nav -->
+        <nav class="flex gap-6 text-sm font-semibold text-gray-900">
+            <a routerLink="/" class="hover:underline">Home</a>
+            <a href="#" class="hover:underline">Inkjet</a>
+            <a href="#" class="hover:underline">Laser</a>
+            <a href="#" class="hover:underline">Envy</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+        <img src="/hp2.jpg" alt="" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-sky-700/80"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative max-w-5xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 text-white">
+
+        <!-- LEFT -->
+        <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
+                Set Up Your HP Printer
+            </h1>
+
+            <p class="mt-4 max-w-xl text-blue-100 text-sm">
+                Enter your HP product name and model number to get the right
+                HP Smart software and drivers for you
+            </p>
+
+            <!-- Input -->
+            <div class="mt-6 flex max-w-xl bg-white rounded-lg overflow-hidden border">
+                <input type="text" [(ngModel)]="product"
+                    placeholder='Enter your product name here. Example: "Envy, Office Jet"'
+                    class="flex-1 px-5 py-3 text-sm text-gray-800 outline-none" />
+
+                <button (click)="next()" [disabled]="!product || product.trim().length === 0" [ngClass]="
+      product && product.trim().length > 0
+        ? 'text-blue-600 bg-white hover:taxt-blue-700 cursor-pointer'
+        : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+    " class="px-6 py-3 font-semibold transition">
+                    Next
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="flex justify-center lg:justify-end">
+            <img src="/hp1.png" alt="Printer" class="max-w-md w-90 drop-shadow-2xl" />
+        </div>
+
+    </div>
+</section>
+<section class="max-w-5xl mx-auto px-6 py-10 font-bold text-gray-900">
+    <p class="text-sm ">
+        Install HP Smart software and drivers on each mobile device or computer
+    </p>
+    <p class="text-sm">
+        you want to print from. Add the printer on the new device.
+    </p>
+    <p class="mt-5 text-sm">
+        Need additional help with setup?
+        <a href="#" class="text-blue-600 font-semibold hover:underline">
+            Support
+        </a>
+    </p>
+</section>

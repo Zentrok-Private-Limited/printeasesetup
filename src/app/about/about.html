@@ -94,3 +94,59 @@
     </div>
   </div>
 </section>
+
+<section class="bg-white py-12">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- HEADER -->
+    <div class="text-center mb-3">
+      <h2 class="text-2xl font-extrabold text-gray-900">
+        What customers say
+      </h2>
+      <p class="mt-2 text-xs font-bold text-gray-600">
+        Real feedback from people who solved their issue quickly.
+      </p>
+    </div>
+
+    <!-- TESTIMONIAL GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+      <div
+        *ngFor="let item of testimonials"
+        class="bg-white border border-gray-200 rounded-2xl p-3 shadow-sm"
+      >
+
+        <!-- TOP -->
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-sm">
+              {{ item.initial }}
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm">
+                {{ item.name }}
+              </p>
+              <p class="text-xs text-gray-500">
+                {{ item.role }}
+              </p>
+            </div>
+          </div>
+
+          <!-- STARS -->
+          <div class="flex text-yellow-400 text-xs">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- TEXT -->
+        <p class="text-[12px] text-gray-600 leading-relaxed">
+          “{{ item.text }}”
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

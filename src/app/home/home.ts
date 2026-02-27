@@ -21,13 +21,13 @@ export class Home {
       name: 'HP',
       logo: '/hp.png',
       buttonText: 'START NOW',
-      link: '/hp-printer-setup',
+      link: '/hp',
     },
     {
       name: 'Canon',
       logo: '/canon.png',
       buttonText: 'START NOW',
-      link: '/canon-printer-setup',
+      link: '/canon',
     },
     {
       name: 'Epson',
