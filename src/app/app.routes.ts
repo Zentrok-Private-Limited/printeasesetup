@@ -5,9 +5,10 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./home/home').then(m => m.Home),
-  },{
-    path: 'services',
+  },
+  {
+    path: 'about',
     loadComponent: () =>
-      import('./services/services').then(m => m.Services),
+      import('./about/about').then(m => m.About),
   },
 ];

@@ -1,37 +1,37 @@
-<section class="relative py-24 bg-[#eef3f9] overflow-hidden">
+<section id="services" class="relative py-24 bg-[#eef3f9] overflow-hidden">
 
   <!-- blurred background image effect -->
   <div class="absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-20"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-2 text-center">
+  <div class="relative z-10 max-w-5xl mx-auto px-2 text-center">
 
     <!-- Heading -->
     <h2 class="text-3xl md:text-5xl font-[1000] text-gray-900">
       Download & Install Printer Drivers
     </h2>
 
-    <p class="mt-3 text-gray-600 max-w-2xl text-lg font-[800] mx-auto">
+    <p class="mt-3 text-gray-600 max-w-2xl text-sm font-[800] mx-auto">
       Choose your brand to get the correct driver, firmware, and setup guide.
     </p>
 
     <!-- Cards -->
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-      <div *ngFor="let brand of printerBrands" class="bg-white rounded-3xl p-8
+      <div *ngFor="let brand of printerBrands" class="bg-white rounded-3xl p-4
                shadow-[0_20px_50px_rgba(0,0,0,0.12)]
                transition hover:-translate-y-1">
 
         <!-- Logo -->
-        <div class="h-60 flex items-center justify-center mb-2">
-          <img [src]="brand.logo" [alt]="brand.name" class="max-h-58 object-contain" />
+        <div class="h-42 flex items-center justify-center mb-2">
+          <img [src]="brand.logo" [alt]="brand.name" class="max-h-40 object-contain" />
         </div>
 
         <p class="text-sm text-gray-700 mb-5 font-[800]">
           Printer Setup
         </p>
 
-        <a [href]="brand.link" class="block w-full py-3 rounded-md
-                 bg-blue-600 text-white font-semibold text-sm
+        <a [href]="brand.link" class="block w-full py-2 rounded-lg
+                 bg-blue-600 text-white font-[800] text-[12px]
                  hover:bg-blue-700 transition">
           {{ brand.buttonText }}
         </a>
@@ -42,15 +42,15 @@
   </div>
 </section>
 
-<section class="bg-white py-20">
-  <div class="max-w-6xl mx-auto px-4">
+<section class="bg-white py-10">
+  <div class="max-w-5xl mx-auto px-4">
 
     <!-- Heading -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900">
+      <h2 class="text-3xl font-[800] text-gray-900">
         Troubleshooting Checklist (Try These Steps First)
       </h2>
-      <p class="mt-3 text-gray-500 max-w-2xl mx-auto text-sm">
+      <p class="mt-3 text-gray-500 max-w-2xl mx-auto text-[12px]">
         Most printing issues are caused by temporary system states, connection mismatches,
         or queue conflicts. Follow the steps below in order and stop once the issue is resolved.
       </p>
@@ -59,7 +59,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
       <!-- LEFT -->
-      <div class="lg:col-span-2 space-y-4">
+      <div class="lg:col-span-2 space-y-3">
 
         <div *ngFor="let step of steps" class="border border-gray-200 rounded-xl p-2 transition-all duration-300"
           [class.shadow-sm]="activeStep === step.id">
@@ -80,7 +80,7 @@
               </h4>
             </div>
 
-            <span class="text-sm text-blue-600">
+            <span class="text-[11px] text-blue-600">
               {{ activeStep === step.id ? 'Hide details −' : 'View details +' }}
             </span>
           </div>
@@ -100,23 +100,23 @@
       </div>
 
       <!-- RIGHT INFO -->
-      <div class="border rounded-xl p-6 bg-gray-50 h-fit">
-        <h4 class="font-semibold text-gray-900 mb-3">
+      <div class="border border-gray-200 rounded-xl p-4 bg-gray-50 h-fit">
+        <h4 class="font-[800] text-[13px] text-gray-900">
           If the issue continues
         </h4>
 
-        <p class="text-sm text-gray-600 mb-4">
+        <p class="text-[12px] text-gray-600">
           Persistent issues may involve driver conflicts, permissions,
           firmware, or network configuration.
         </p>
 
-        <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+        <ul class="text-[12px] text-gray-600 space-y-1 list-disc list-inside">
           <li>Try a different document or application</li>
           <li>Check device status (offline, paused, error)</li>
           <li>Confirm the exact model name on the device</li>
         </ul>
 
-        <p class="mt-4 text-xs text-gray-400">
+        <p class="text-center text-xs text-gray-400">
           Complete steps in order for best results.
         </p>
       </div>
@@ -166,7 +166,7 @@
         <!-- Feature cards -->
         <div class="mt-8 space-y-4 max-w-xl">
 
-          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+          <div class="flex gap-4 bg-white p-2 rounded-xl border border-gray-300">
             <span class="text-green-500">🧩</span>
             <div>
               <h4 class="font-[800] text-gray-900 text-[12px]">Model-based routing</h4>
@@ -176,7 +176,7 @@
             </div>
           </div>
 
-          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+          <div class="flex gap-4 bg-white p-2 rounded-xl border border-gray-300">
             <span class="text-blue-500">🔍</span>
             <div>
               <h4 class="font-[800] text-gray-900 text-[12px]">Clear instructions</h4>
@@ -186,7 +186,7 @@
             </div>
           </div>
 
-          <div class="flex gap-4 bg-white p-2 rounded-xl border">
+          <div class="flex gap-4 bg-white p-2 rounded-xl border border-gray-300">
             <span class="text-orange-500">⚡</span>
             <div>
               <h4 class="font-[800] text-gray-900 text-[12px]">Quick follow-up</h4>
@@ -231,7 +231,7 @@
         </div>
 
         <!-- TIP BOX (OUTSIDE IMAGE) -->
-        <div class="bg-white border rounded-xl p-4 text-sm">
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-sm">
           <strong>Tip</strong>
           <p class="text-gray-600 mt-1">
             Keep your model number handy (from the label on the device or box).
@@ -242,5 +242,294 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-br from-[#eef3fb] to-[#f6fffc] py-10">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- TOP CONTENT -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- LEFT -->
+      <div>
+        <span class="inline-block mb-4 px-4 py-1 rounded-full bg-white border text-[11px] font-bold text-gray-700">
+          HELP CENTER
+        </span>
+
+        <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+          Customer<br />Care
+        </h2>
+
+        <p class="mt-1 text-[12px] font-bold text-gray-600 max-w-lg">
+          We focus on clear, step-by-step help so you can finish setup without confusion.
+          Most issues are caused by simple connection or queue problems—and they can often
+          be fixed quickly.
+        </p>
+
+        <p class="mt-4 text-[12px] font-bold text-gray-600 max-w-lg">
+          Our team helps you choose the right software package, follow the correct
+          installation flow, and avoid common mistakes that cause failed installs.
+        </p>
+
+        <p class="mt-4 text-[12px] font-bold text-gray-600 max-w-lg">
+          If you get stuck, you can share your model number and any error message so we can
+          guide the next step accurately.
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <span class="inline-block mb-4 px-4 py-1 rounded-full bg-white border text-[12px] font-semibold text-teal-700">
+          QUICK GUIDE
+        </span>
+
+        <h2 class="text-4xl font-extrabold text-gray-900 leading-tight">
+          Troubleshooting<br />Guidance
+        </h2>
+
+        <p class="mt-1 text-[12px] font-bold text-gray-600 max-w-lg">
+          Modern devices include many features—wireless setup, scanning utilities,
+          and multiple drivers—which can sometimes cause conflicts during installation.
+        </p>
+
+        <p class="mt-4 text-[12px] font-bold text-gray-600 max-w-lg">
+          We provide guided troubleshooting using a structured checklist so you can
+          resolve offline status, connection errors, and driver mismatches efficiently.
+        </p>
+
+        <p class="mt-4 text-[12px] font-bold text-gray-600 max-w-lg">
+          For faster results, keep your model name, operating system version,
+          and any error code ready.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- PROCESS CARD -->
+    <div class="mt-5 bg-white/10 backdrop-blur border border-gray-200 rounded-3xl p-5">
+
+      <!-- HEADER -->
+      <div class="text-center mb-3">
+        <span class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-xs font-semibold">
+          PROCESS
+        </span>
+
+        <h3 class="mt-1 text-lg font-[800] text-gray-900">
+          A simple 3-step setup flow
+        </h3>
+
+        <p class="text-[12px] font-bold text-gray-600">
+          Match the correct package, follow the guided steps, and complete final checks.
+        </p>
+      </div>
+
+      <!-- STEPS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <!-- STEP 1 -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-4 h-full">
+          <div class="flex items-center gap-2">
+            <span
+              class="w-7 h-7 rounded-full bg-blue-600 text-white text-[11px] font-semibold flex items-center justify-center">
+              01
+            </span>
+            <h4 class="font-semibold text-sm text-gray-900">Select</h4>
+          </div>
+          <p class="text-[11px] mt-1 leading-snug text-gray-600">
+            Choose the brand and enter the model to match the right package.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-4 h-full">
+          <div class="flex items-center gap-2">
+            <span
+              class="w-7 h-7 rounded-full bg-blue-600 text-white text-[11px] font-semibold flex items-center justify-center">
+              02
+            </span>
+            <h4 class="font-semibold text-sm text-gray-900">Prepare</h4>
+          </div>
+          <p class="text-[11px] mt-1 leading-snug text-gray-600">
+            We generate the compatible setup flow and required steps.
+          </p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-4 h-full">
+          <div class="flex items-center gap-2">
+            <span
+              class="w-7 h-7 rounded-full bg-blue-600 text-white text-[11px] font-semibold flex items-center justify-center">
+              03
+            </span>
+            <h4 class="font-semibold text-sm text-gray-900">Finish</h4>
+          </div>
+          <p class="text-[11px] mt-1 leading-snug text-gray-600">
+            Complete installation and run quick checks to confirm it works.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FOOTER TIP -->
+      <p class="mt-3 text-center text-[11px] text-gray-500">
+        Tip: If an error appears, save the exact code and model name before retrying.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-white py-10">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+      <!-- LEFT CONTENT -->
+      <div>
+        <!-- Badge -->
+        <span
+          class="mb-5 px-4 py-1.5 rounded-full bg-gray-100 border text-[11px] font-semibold text-gray-700">
+          ABOUT PRINTERSETUPHOME.COM
+        </span>
+
+        <!-- Heading -->
+        <h1 class="text-3xl mt-2 font-extrabold text-gray-900">
+          Fast setup help for drivers,<br />
+          wireless, and common errors
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-1 text-gray-600 max-w-xl text-[13px]">
+          printersetuphome.com helps you get the right software, connect devices to Wi-Fi,
+          and fix everyday issues like offline messages, driver conflicts, paper jams,
+          and print quality problems. Our guidance is clear, step-by-step, and designed
+          for quick results.
+        </p>
+
+        <!-- Feature list -->
+        <div class="mt-3 space-y-3 max-w-xl">
+          <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3">
+            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center">
+              ✓
+            </span>
+            <p class="text-[13px] text-gray-700">
+              Model-specific download guidance
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3">
+            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center">
+              ✓
+            </span>
+            <p class="text-[13px] text-gray-700">
+              Wi-Fi & connection steps made easy
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3">
+            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center">
+              ✓
+            </span>
+            <p class="text-[13px] text-gray-700">
+              Fix common errors in minutes
+            </p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-3 flex flex-wrap gap-2">
+          <div class="border border-gray-300 rounded-xl px-13 py-1">
+            <p class="text-sm font-bold text-gray-900">24/7</p>
+            <p class="text-xs text-gray-500">Guidance</p>
+          </div>
+
+          <div class="border border-gray-300 rounded-xl px-13 py-1">
+            <p class="text-sm font-bold text-gray-900">Quick</p>
+            <p class="text-xs text-gray-500">Steps</p>
+          </div>
+
+          <div class="border border-gray-300 rounded-xl px-13 py-1">
+            <p class="text-sm font-bold text-gray-900">Secure</p>
+            <p class="text-xs text-gray-500">Process</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="relative">
+        <div class="relative rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src="about.jpg"
+            alt="Support team"
+            class="w-full h-[380px] object-cover grayscale"
+          />
+
+          <!-- Overlay badge -->
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur border rounded-full px-4 py-1.5 text-xs font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            Verified help • Clear steps
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-12">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- HEADER -->
+    <div class="text-center mb-3">
+      <h2 class="text-2xl font-extrabold text-gray-900">
+        What customers say
+      </h2>
+      <p class="mt-2 text-xs font-bold text-gray-600">
+        Real feedback from people who solved their issue quickly.
+      </p>
+    </div>
+
+    <!-- TESTIMONIAL GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+      <div
+        *ngFor="let item of testimonials"
+        class="bg-white border border-gray-200 rounded-2xl p-3 shadow-sm"
+      >
+
+        <!-- TOP -->
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-sm">
+              {{ item.initial }}
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm">
+                {{ item.name }}
+              </p>
+              <p class="text-xs text-gray-500">
+                {{ item.role }}
+              </p>
+            </div>
+          </div>
+
+          <!-- STARS -->
+          <div class="flex text-yellow-400 text-xs">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- TEXT -->
+        <p class="text-[12px] text-gray-600 leading-relaxed">
+          “{{ item.text }}”
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
