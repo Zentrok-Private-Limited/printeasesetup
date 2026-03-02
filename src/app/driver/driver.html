@@ -1,0 +1,36 @@
+<section
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br text-white px-6"
+  [ngClass]="bgClass"
+>
+  <div class="text-center max-w-md">
+
+    <!-- Loader -->
+    <div
+      class="mx-auto mb-6 h-12 w-12 rounded-full border-4 animate-spin"
+      [ngClass]="spinnerClass"
+    ></div>
+
+    <!-- Heading -->
+    <h2 class="text-2xl font-bold">
+      Searching for your {{ brand | titlecase }} printer…
+    </h2>
+
+    <!-- Sub text -->
+    <p class="mt-2 text-sm" [ngClass]="textClass">
+      Finding the right driver package for
+      <strong>{{ model }}</strong>
+    </p>
+
+    <!-- Dots -->
+    <div class="flex justify-center gap-2 mt-6">
+      <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+      <span class="w-2 h-2 bg-white rounded-full animate-pulse delay-150"></span>
+      <span class="w-2 h-2 bg-white rounded-full animate-pulse delay-300"></span>
+    </div>
+
+    <p class="mt-6 text-xs text-white/60">
+      This may take a few seconds. Please do not refresh the page.
+    </p>
+
+  </div>
+</section>

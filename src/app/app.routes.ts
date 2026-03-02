@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    {
+  {
     path: '',
     loadComponent: () =>
       import('./home/home').then(m => m.Home),
@@ -25,5 +25,25 @@ export const routes: Routes = [
     path: 'canon',
     loadComponent: () =>
       import('./canon/canon').then(m => m.Canon),
+  },
+  {
+    path: 'epson',
+    loadComponent: () =>
+      import('./epson/epson').then(m => m.Epson),
+  },
+  {
+    path: 'brother',
+    loadComponent: () =>
+      import('./brother/brother').then(m => m.Brother),
+  },
+  {
+    path: 'printer/driver',
+    loadComponent: () =>
+      import('./driver/driver').then(m => m.Driver),
+  },
+  {
+    path: 'printer/install',
+    loadComponent: () =>
+      import('./installer/installer').then(m => m.Installer),
   },
 ];

@@ -2,27 +2,24 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-
 @Component({
-  selector: 'app-hp',
-  standalone: true,                 // ✅ REQUIRED
+  selector: 'app-brother',
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './hp.html',
-  styleUrls: ['./hp.css'],           // ✅ FIX
+  templateUrl: './brother.html',
+  styleUrl: './brother.css',
 })
-export class Hp {
+export class Brother {
+product: string = '';
 
-  product: string = '';
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   next() {
-    if (!this.product || this.product.trim() === '') return;
+    if (!this.product || this.product.trim().length === 0) return;
 
-    // ✅ HP page → HP brand
+    // ✅ Canon page → Canon brand
     this.router.navigate(['/printer/driver'], {
       queryParams: {
-        brand: 'hp',   // lowercase only
+        brand: 'brother',
         model: this.product
       }
     });

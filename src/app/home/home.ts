@@ -33,13 +33,13 @@ export class Home {
       name: 'Epson',
       logo: '/epson.png',
       buttonText: 'START NOW',
-      link: '/epson-printer-setup',
+      link: '/epson',
     },
     {
       name: 'Brother',
       logo: '/brother.png',
       buttonText: 'START NOW',
-      link: '/brother-printer-setup',
+      link: '/brother',
     },
   ];
   activeStep = 1;
