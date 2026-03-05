@@ -30,10 +30,12 @@
           Printer Setup
         </p>
 
-        <a [href]="brand.link" class="block w-full py-2 rounded-lg
-                 bg-blue-600 text-white font-[800] text-[12px]
-                 hover:bg-blue-700 transition">
-          {{ brand.buttonText }}
+        <a [routerLink]="['/printer', brand.name]" class="block w-full py-2 rounded-lg
+  bg-blue-600 text-white font-[800] text-[12px]
+  hover:bg-blue-700 transition">
+
+          START NOW
+
         </a>
 
       </div>
@@ -388,8 +390,7 @@
       <!-- LEFT CONTENT -->
       <div>
         <!-- Badge -->
-        <span
-          class="mb-5 px-4 py-1.5 rounded-full bg-gray-100 border text-[11px] font-semibold text-gray-700">
+        <span class="mb-5 px-4 py-1.5 rounded-full bg-gray-100 border text-[11px] font-semibold text-gray-700">
           ABOUT PRINTEASESETUP
         </span>
 
@@ -459,11 +460,7 @@
       <!-- RIGHT IMAGE -->
       <div class="relative">
         <div class="relative rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src="about.jpg"
-            alt="Support team"
-            class="w-full h-[380px] object-cover grayscale"
-          />
+          <img src="about.jpg" alt="Support team" class="w-full h-[380px] object-cover grayscale" />
 
           <!-- Overlay badge -->
           <div
@@ -494,10 +491,7 @@
     <!-- TESTIMONIAL GRID -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 
-      <div
-        *ngFor="let item of testimonials"
-        class="bg-white border border-gray-200 rounded-2xl p-3 shadow-sm"
-      >
+      <div *ngFor="let item of testimonials" class="bg-white border border-gray-200 rounded-2xl p-3 shadow-sm">
 
         <!-- TOP -->
         <div class="flex items-start justify-between mb-4">

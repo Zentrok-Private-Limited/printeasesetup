@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface PrinterBrand {
   name: string;
@@ -11,36 +12,36 @@ interface PrinterBrand {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-  printerBrands: PrinterBrand[] = [
+  printerBrands = [
     {
-      name: 'HP',
+      name: 'hp',
+      title: 'HP',
       logo: '/hp.png',
-      buttonText: 'START NOW',
-      link: '/hp',
+      heroImage: '/hp-printer.png'
     },
     {
-      name: 'Canon',
+      name: 'canon',
+      title: 'Canon',
       logo: '/canon.png',
-      buttonText: 'START NOW',
-      link: '/canon',
+      heroImage: '/canon-printer.png'
     },
     {
-      name: 'Epson',
+      name: 'epson',
+      title: 'Epson',
       logo: '/epson.png',
-      buttonText: 'START NOW',
-      link: '/epson',
+      heroImage: '/epson-printer.png'
     },
     {
-      name: 'Brother',
+      name: 'brother',
+      title: 'Brother',
       logo: '/brother.png',
-      buttonText: 'START NOW',
-      link: '/brother',
-    },
+      heroImage: '/brother-printer.png'
+    }
   ];
   activeStep = 1;
 

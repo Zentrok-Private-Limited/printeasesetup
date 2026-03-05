@@ -1,0 +1,333 @@
+<header class="w-full bg-white shadow-sm">
+
+    <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+            <img [src]="brand.logo" class="w-14">
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex gap-8 text-sm font-semibold text-gray-700">
+
+            <a routerLink="/" class="hover:text-blue-600">Home</a>
+            <a href="#" class="hover:text-blue-600">OfficeJet</a>
+            <a href="#" class="hover:text-blue-600">InkJet</a>
+            <a href="#" class="hover:text-blue-600">LaserJet</a>
+            <a href="#" class="hover:text-blue-600">Envy</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="relative py-5 bg-gradient-to-r" [ngClass]="brand.bg">
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center px-6">
+        <!-- LEFT TEXT -->
+        <div class="text-white">
+
+            <h1 class="text-4xl font-bold mb-4">
+                Download Free {{brand.name}} Printer Drivers
+            </h1>
+
+            <ul class="space-y-2 text-sm mb-6">
+
+                <li>• Make sure your printer is powered on</li>
+                <li>• Click on Download to install the drivers</li>
+
+            </ul>
+
+            <button (click)="startWizard()" class="bg-sky-500 px-6 py-3 rounded-full font-semibold hover:bg-sky-600">
+
+                Download Now ↓
+
+            </button>
+
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="flex justify-center mt-10 md:mt-0">
+
+            <img [src]="brand.hero" class="w-[420px]">
+
+        </div>
+
+    </div>
+
+</section>
+<!-- popup section start -->
+<div *ngIf="step>0" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+
+    <div class="bg-white w-[520px] rounded-lg shadow-xl relative">
+
+        <!-- HEADER -->
+        <div class="flex justify-between items-center border-b px-6 py-4">
+
+            <h2 class="font-semibold text-lg">
+                Quick Download Free Drivers
+            </h2>
+
+            <button (click)="close()">✕</button>
+
+        </div>
+
+        <!-- STEP 1 -->
+        <div *ngIf="step==1" class="p-8 text-center">
+
+            <button (click)="next()" class="bg-blue-600 text-white px-5 py-2 rounded">
+
+                Let's Start →
+
+            </button>
+
+            <p class="mt-3 text-sm">
+                Start Printer Setup Wizard
+            </p>
+
+            <!-- <img src="/printer-wizard.png" class="mx-auto mt-6 w-60"> -->
+
+        </div>
+
+
+        <!-- STEP 2 FORM -->
+
+        <div *ngIf="step==2" class="p-8">
+
+            <p class="mb-3 text-sm">
+                Fill the form and download your printer driver
+            </p>
+
+            <label class="text-sm">Model Number</label>
+
+            <input class="w-full border p-2 rounded mt-2">
+
+            <button (click)="setStep(3)" class="mt-5 w-full bg-blue-600 text-white py-2 rounded">
+                Quick Download & Install Drivers ↓
+            </button>
+
+        </div>
+
+
+        <!-- STEP 3 LOADING -->
+
+        <div *ngIf="step==3" class="p-10 text-center">
+
+            <div class="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full mx-auto">
+            </div>
+
+            <p class="text-sm mt-4 text-gray-600">
+                Initializing printer setup...
+            </p>
+
+        </div>
+        <!-- STEP 4 CONNECTION -->
+
+        <div *ngIf="step==4" class="p-8">
+
+            <p class="mb-4">Select Wi-Fi or USB connection?</p>
+
+            <div class="flex justify-between mb-4">
+
+                <span>USB: Connect via USB</span>
+
+                <button (click)="setStep(5)" class="bg-blue-600 text-white px-4 py-2 rounded">
+                    Let's Start →
+                </button>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span>WIFI: Connect via Wifi</span>
+
+                <button (click)="setStep(5)" class="bg-blue-600 text-white px-4 py-2 rounded">
+                    Let's Start →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 5 SEARCHING -->
+
+        <div *ngIf="step==5" class="p-10 text-center">
+
+            <p class="text-gray-600 mb-4">
+                Verify your printer's USB connection for a seamless setup process.
+            </p>
+
+            <hr class="mb-6">
+
+            <!-- <img src="/printer-connect.png" class="mx-auto w-44 mb-6"> -->
+
+            <div class="flex items-center justify-center gap-2 mb-4">
+
+                <div class="animate-spin h-5 w-5 border-2 border-gray-400 border-t-transparent rounded-full"></div>
+
+                <span [class.text-red-500]="loadingText === 'Loading Error...'">
+                    {{loadingText}}
+                </span>
+
+            </div>
+
+            <!-- Step messages -->
+            <div class="text-sm text-gray-400 space-y-2">
+
+                <p *ngIf="showUsbCheck">
+                    1. Check USB cable connected both side
+                </p>
+
+                <p *ngIf="showDriverCheck">
+                    2. Check your device driver (USB Port Drivers)
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 6 ERROR -->
+
+        <div *ngIf="step==6" class="p-8 text-center">
+
+            <!-- <img src="/printer-connect.png" class="mx-auto w-44 mb-4"> -->
+
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                Wifi connection failed.
+            </h3>
+
+            <div class="overflow-hidden max-w-md mx-auto text-sm">
+
+                <div class="flex justify-between items-center px-4 py-3">
+                    <span>Check Wifi on both ends.</span>
+                    <a href="#" class="text-blue-600 font-medium">Retry</a>
+                </div>
+
+                <div class="flex justify-between items-center px-4 py-3">
+                    <span>Check Wifi drivers.</span>
+                    <a href="#" class="text-blue-600 font-medium">Check Drivers</a>
+                </div>
+
+            </div>
+
+            <div class="flex justify-center gap-6 mt-6">
+
+                <button (click)="next()" class="bg-blue-600 text-white px-5 py-2 rounded">
+                    Fix Issue
+                </button>
+
+                <button class="bg-blue-600 text-white px-5 py-2 rounded">
+                    Need Assistance?
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 7 DETECTING -->
+
+        <div *ngIf="step==7" class="p-8 text-center">
+
+            <h3 class="text-blue-600 font-semibold mb-3">
+                Detecting problems
+            </h3>
+
+            <div class="w-full bg-gray-200 h-2 rounded">
+                <div class="bg-blue-600 h-2 transition-all duration-1000" [style.width.%]="progress"></div>
+            </div>
+
+            <p class="text-sm mt-2">
+                {{detectText}}
+            </p>
+
+        </div>
+
+
+        <!-- STEP 8 SUPPORT FORM -->
+
+        <div *ngIf="step==8" class="p-8">
+
+            <h3 class="font-semibold mb-4">
+                Welcome to Printer Support
+            </h3>
+
+            <label>Model Number</label>
+
+            <input class="w-full border p-2 rounded mb-3">
+
+            <label>Full Name</label>
+
+            <input class="w-full border p-2 rounded mb-3">
+
+            <label>Phone Number</label>
+
+            <input class="w-full border p-2 rounded mb-4">
+
+            <button class="bg-blue-600 text-white px-5 py-2 rounded">
+
+                Submit
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- popup section end  -->
+<!-- QUICK DOWNLOAD SECTION -->
+
+<section class="bg-[#f4f7fb] py-16">
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
+
+        <!-- LEFT FORM -->
+        <div>
+
+            <h2 class="text-2xl font-bold mb-3">
+                Quick Download Free Drivers
+            </h2>
+
+            <p class="text-gray-600 text-sm mb-6">
+                Fill the form and download your {{brand.name}} printer driver
+            </p>
+
+            <label class="text-sm font-semibold">
+                Model Number:
+            </label>
+
+            <input #modelInput (input)="0" type="text" placeholder="Enter printer model"
+                class="w-full mt-2 p-3 border rounded-lg outline-none focus:border-blue-500">
+
+            <button (click)="startWizard()" [disabled]="!modelInput.value.trim()" class="mt-5 px-6 py-3 rounded-lg text-white
+  bg-blue-600 hover:bg-blue-700
+  disabled:bg-gray-400 disabled:cursor-not-allowed">
+
+                Download Driver
+
+            </button>
+
+        </div>
+        <!-- RIGHT INFO -->
+        <div>
+
+            <h3 class="text-xl font-bold mb-3">
+                How to find printer model number?
+            </h3>
+
+            <p class="text-gray-600 text-sm">
+                The product name is on the front of your device.
+            </p>
+
+            <img [src]="brand.hero" class="mt-6 w-72">
+
+        </div>
+
+    </div>
+
+</section>
