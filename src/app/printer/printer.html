@@ -1,19 +1,44 @@
 <header class="w-full bg-white shadow-sm">
 
-    <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between py-1 px-6">
+
         <!-- Logo -->
-        <div class="flex items-center gap-2">
-            <img [src]="brand.logo" class="w-14">
+        <div class="flex items-center">
+            <img [src]="brand.logo" class="w-20">
         </div>
 
-        <!-- Menu -->
-        <nav class="flex gap-8 text-sm font-semibold text-gray-700">
-
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-700">
             <a routerLink="/" class="hover:text-blue-600">Home</a>
             <a href="#" class="hover:text-blue-600">OfficeJet</a>
             <a href="#" class="hover:text-blue-600">InkJet</a>
             <a href="#" class="hover:text-blue-600">LaserJet</a>
             <a href="#" class="hover:text-blue-600">Envy</a>
+        </nav>
+
+        <!-- Mobile Button -->
+        <button (click)="toggleMenu()" class="md:hidden text-2xl">
+            ☰
+        </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        class="md:hidden overflow-hidden transition-all duration-500 ease-in-out"
+        [class.max-h-0]="!mobileMenuOpen"
+        [class.max-h-64]="mobileMenuOpen"
+        [class.opacity-0]="!mobileMenuOpen"
+        [class.opacity-100]="mobileMenuOpen"
+    >
+
+        <nav class="flex flex-col text-sm font-semibold text-gray-700 bg-white">
+
+            <a routerLink="/" class="px-6 py-3 hover:bg-gray-100">Home</a>
+            <a href="#" class="px-6 py-3 hover:bg-gray-100">OfficeJet</a>
+            <a href="#" class="px-6 py-3 hover:bg-gray-100">InkJet</a>
+            <a href="#" class="px-6 py-3 hover:bg-gray-100">LaserJet</a>
+            <a href="#" class="px-6 py-3 hover:bg-gray-100">Envy</a>
 
         </nav>
 
@@ -87,7 +112,7 @@
                 Start Printer Setup Wizard
             </p>
 
-            <!-- <img src="/printer-wizard.png" class="mx-auto mt-6 w-60"> -->
+            <img src="/printer.png" class="mx-auto mt-6 w-90">
 
         </div>
 
@@ -127,25 +152,46 @@
 
         <div *ngIf="step==4" class="p-8">
 
-            <p class="mb-4">Select Wi-Fi or USB connection?</p>
+            <p class="mb-6 text-center font-semibold text-gray-700">
+                Select Wi-Fi or USB connection
+            </p>
 
-            <div class="flex justify-between mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <span>USB: Connect via USB</span>
+                <!-- USB OPTION -->
+                <div class="rounded-lg p-6 text-center hover:shadow-md transition">
 
-                <button (click)="setStep(5)" class="bg-blue-600 text-white px-4 py-2 rounded">
-                    Let's Start →
-                </button>
+                    <div class="flex justify-center items-center gap-3 mb-4">
+                        <img src="/usb.jpg" class="w-40">
+                    </div>
 
-            </div>
+                    <p class="text-sm text-gray-600 mb-4">
+                        <strong>USB :</strong> Connect via USB
+                    </p>
 
-            <div class="flex justify-between">
+                    <button (click)="selectConnection('usb')" class="bg-blue-600 text-white px-5 py-2 rounded">
+                        Let's Start →
+                    </button>
 
-                <span>WIFI: Connect via Wifi</span>
+                </div>
 
-                <button (click)="setStep(5)" class="bg-blue-600 text-white px-4 py-2 rounded">
-                    Let's Start →
-                </button>
+
+                <!-- WIFI OPTION -->
+                <div class="rounded-lg p-6 text-center hover:shadow-md transition">
+
+                    <div class="flex justify-center items-center gap-3 mb-5">
+                        <img src="/wifi.png" class="w-60">
+                    </div>
+
+                    <p class="text-sm text-gray-600 mb-4">
+                        <strong>WI-FI :</strong> Connect via Wi-Fi
+                    </p>
+
+                    <button (click)="selectConnection('wifi')" class="bg-blue-600 text-white px-5 py-2 rounded">
+                        Let's Start →
+                    </button>
+
+                </div>
 
             </div>
 
@@ -160,7 +206,9 @@
                 Verify your printer's USB connection for a seamless setup process.
             </p>
 
-            <hr class="mb-6">
+            <img *ngIf="connectionType==='usb'" src="/usb.jpg" class="mx-auto w-44 mb-6">
+
+            <img *ngIf="connectionType==='wifi'" src="/wifi.png" class="mx-auto w-44 mb-6">
 
             <!-- <img src="/printer-connect.png" class="mx-auto w-44 mb-6"> -->
 
@@ -190,25 +238,31 @@
         </div>
 
 
-        <!-- STEP 6 ERROR -->
-
         <div *ngIf="step==6" class="p-8 text-center">
 
-            <!-- <img src="/printer-connect.png" class="mx-auto w-44 mb-4"> -->
+            <!-- USB IMAGE -->
+            <img *ngIf="connectionType==='usb'" src="/usb.jpg" class="mx-auto w-44 mb-4">
+
+            <!-- WIFI IMAGE -->
+            <img *ngIf="connectionType==='wifi'" src="/wifi.png" class="mx-auto w-44 mb-4">
 
             <h3 class="text-xl font-semibold text-gray-800 mb-4">
-                Wifi connection failed.
+                {{ connectionType === 'usb' ? 'USB connection failed.' : 'Wifi connection failed.' }}
             </h3>
 
             <div class="overflow-hidden max-w-md mx-auto text-sm">
 
                 <div class="flex justify-between items-center px-4 py-3">
-                    <span>Check Wifi on both ends.</span>
+                    <span>
+                        {{ connectionType === 'usb' ? 'Check USB cable on both ends.' : 'Check Wifi on both ends.' }}
+                    </span>
                     <a href="#" class="text-blue-600 font-medium">Retry</a>
                 </div>
 
                 <div class="flex justify-between items-center px-4 py-3">
-                    <span>Check Wifi drivers.</span>
+                    <span>
+                        {{ connectionType === 'usb' ? 'Check USB drivers.' : 'Check Wifi drivers.' }}
+                    </span>
                     <a href="#" class="text-blue-600 font-medium">Check Drivers</a>
                 </div>
 
@@ -324,7 +378,7 @@
                 The product name is on the front of your device.
             </p>
 
-            <img [src]="brand.hero" class="mt-6 w-72">
+            <img [src]="brand.bottom" class="mt-6 w-[600px]">
 
         </div>
 

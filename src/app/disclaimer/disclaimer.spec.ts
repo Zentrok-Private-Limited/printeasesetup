@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Driver } from './driver';
+import { Disclaimer } from './disclaimer';
 
-describe('Driver', () => {
-  let component: Driver;
-  let fixture: ComponentFixture<Driver>;
+describe('Disclaimer', () => {
+  let component: Disclaimer;
+  let fixture: ComponentFixture<Disclaimer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Driver]
+      imports: [Disclaimer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Driver);
+    fixture = TestBed.createComponent(Disclaimer);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

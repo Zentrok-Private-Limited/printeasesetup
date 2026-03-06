@@ -5,12 +5,16 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-printer',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './printer.html',
   styleUrl: './printer.css'
 })
 export class Printer {
+  mobileMenuOpen = false;
 
+  toggleMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
   brandName: any;
   brand: any;
 
@@ -18,38 +22,44 @@ export class Printer {
 
   detectText = "Gathering information about your devices...";
   progress = 10;
+
   showUsbCheck = false;
   showDriverCheck = false;
+
   modelNumber = '';
+
+  // 👇 USB / WIFI selection store karega
+  connectionType = '';
+
   brands: any = {
     hp: {
       name: 'HP',
       logo: '/hp.png',
       hero: '/hp1.png',
+      bottom: '/hp3.png',
       bg: 'from-[#0c4a6e] to-[#0284c7]'
     },
-
     canon: {
       name: 'Canon',
       logo: '/canon.png',
       hero: '/canon1.png',
+      bottom: '/canon2.png',
       bg: 'from-[#b91c1c] to-[#dc2626]'
     },
-
     epson: {
       name: 'Epson',
       logo: '/epson.png',
       hero: '/epson1.png',
+      bottom: '/epson2.png',
       bg: 'from-[#1e3a8a] to-[#2563eb]'
     },
-
     brother: {
       name: 'Brother',
       logo: '/brother.png',
       hero: '/brother1.png',
+      bottom: '/brother2.png',
       bg: 'from-[#1e40af] to-[#3b82f6]'
     }
-
   };
 
   step = 0;
@@ -60,12 +70,9 @@ export class Printer {
   ) { }
 
   ngOnInit() {
-
     const name: any = this.route.snapshot.paramMap.get('name');
-
     this.brand = this.brands[name];
     this.brandName = this.brand.name;
-
   }
 
   startWizard() {
@@ -74,6 +81,12 @@ export class Printer {
 
   next() {
     this.setStep(this.step + 1);
+  }
+
+  // 👇 USB / WIFI select hone par call hoga
+  selectConnection(type: string) {
+    this.connectionType = type;
+    this.setStep(5);
   }
 
   setStep(value: number) {
@@ -93,7 +106,6 @@ export class Printer {
     if (value === 5) {
       this.startLoadingSequence();
     }
-
 
     // STEP 7 → detecting sequence
     if (value === 7) {
@@ -162,7 +174,6 @@ export class Printer {
 
     }
 
-    // final error screen
     this.step = 8;
     this.cd.detectChanges();
 

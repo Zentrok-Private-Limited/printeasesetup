@@ -24,36 +24,20 @@ export const routes: Routes = [
     path: 'printer/:name',
     loadComponent: () =>
       import('./printer/printer').then(m => m.Printer),
-  }
-
-  // {
-  //   path: 'hp',
-  //   loadComponent: () =>
-  //     import('./hp/hp').then(m => m.Hp),
-  // },
-  // {
-  //   path: 'canon',
-  //   loadComponent: () =>
-  //     import('./canon/canon').then(m => m.Canon),
-  // },
-  // {
-  //   path: 'epson',
-  //   loadComponent: () =>
-  //     import('./epson/epson').then(m => m.Epson),
-  // },
-  // {
-  //   path: 'brother',
-  //   loadComponent: () =>
-  //     import('./brother/brother').then(m => m.Brother),
-  // },
-  // {
-  //   path: 'printer/driver',
-  //   loadComponent: () =>
-  //     import('./driver/driver').then(m => m.Driver),
-  // },
-  // {
-  //   path: 'printer/install',
-  //   loadComponent: () =>
-  //     import('./installer/installer').then(m => m.Installer),
-  // },
+  },
+  {
+    path: 'privacy',
+    loadComponent: () =>
+      import('./privacy-policy/privacy-policy').then(m => m.PrivacyPolicy),
+  },
+  {
+    path: 'terms-and-conditions',
+    loadComponent: () =>
+      import('./terms-and-conditions/terms-and-conditions').then(m => m.TermsAndConditions),
+  },
+  {
+    path: 'disclaimer',
+    loadComponent: () =>
+      import('./disclaimer/disclaimer').then(m => m.Disclaimer),
+  },
 ];
