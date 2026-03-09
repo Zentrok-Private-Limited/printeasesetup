@@ -201,9 +201,11 @@
         </div>
 
         <!-- CTA -->
-        <button
+        <button (click)="openPopup()"
           class="mt-8 inline-flex items-center justify-center px-5 py-2 rounded-xl bg-blue-600 text-[12px] text-white font-semibold hover:bg-blue-700 transition">
+
           Continue with {{ selectedBrand }}
+
         </button>
 
         <!-- Footer note -->
@@ -246,7 +248,62 @@
     </div>
   </div>
 </section>
+<!-- POPUP -->
+<div *ngIf="showPopup"
+     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
 
+  <div class="bg-white rounded-2xl p-6 w-[350px] relative shadow-xl">
+
+    <!-- Close button -->
+    <button
+      (click)="closePopup()"
+      class="absolute top-3 right-3 text-gray-400 hover:text-black">
+      ✕
+    </button>
+
+    <!-- Title -->
+    <h3 class="text-lg font-bold text-gray-900">
+      Setup for {{ selectedBrand }}
+    </h3>
+
+    <p class="text-xs text-gray-500 mt-1 mb-4">
+      Enter details to continue setup
+    </p>
+
+    <!-- Form -->
+    <form class="space-y-3">
+
+      <input
+        type="text"
+        placeholder="Your Name"
+        class="w-full border rounded-lg px-3 py-2 text-sm"/>
+
+      <input
+        type="email"
+        placeholder="Email"
+        class="w-full border rounded-lg px-3 py-2 text-sm"/>
+
+      <input
+        type="text"
+        [value]="selectedBrand"
+        readonly
+        class="w-full border rounded-lg px-3 py-2 text-sm bg-gray-100"/>
+
+      <input
+        type="text"
+        placeholder="Model Number"
+        class="w-full border rounded-lg px-3 py-2 text-sm"/>
+
+      <button
+        class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700">
+        Submit
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
 <section class="bg-gradient-to-br from-[#eef3fb] to-[#f6fffc] py-10">
   <div class="max-w-5xl mx-auto px-4">
 

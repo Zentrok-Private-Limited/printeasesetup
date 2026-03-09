@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-interface PrinterBrand {
-  name: string;
-  logo: string;
-  buttonText: string;
-  link: string;
-}
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,6 +10,7 @@ interface PrinterBrand {
   styleUrl: './home.css',
 })
 export class Home {
+
   printerBrands = [
     {
       name: 'hp',
@@ -43,6 +37,7 @@ export class Home {
       heroImage: '/brother-printer.png'
     }
   ];
+
   activeStep = 1;
 
   steps = [
@@ -60,7 +55,7 @@ export class Home {
       title: 'Verify connection',
       description: [
         'For USB: reconnect the cable or try another port.',
-        'For Wi-Fi: confirm both devices are on the same network (band differences can matter).',
+        'For Wi-Fi: confirm both devices are on the same network.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -69,7 +64,7 @@ export class Home {
       title: 'Confirm selected device',
       description: [
         'Ensure the correct printer is selected and set as default.',
-        'This is especially important if multiple printers are installed.',
+        'This is important if multiple printers are installed.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -78,7 +73,7 @@ export class Home {
       title: 'Clear pending jobs',
       description: [
         'Remove stuck or pending print jobs from the queue.',
-        'Restart the print service if needed to unblock the queue.',
+        'Restart the print service if needed.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -86,8 +81,8 @@ export class Home {
       id: 5,
       title: 'Run system diagnostics',
       description: [
-        'Use the built-in printer or device diagnostics tool.',
-        'Check for offline status, port issues, or configuration mismatches.',
+        'Use the built-in printer diagnostics tool.',
+        'Check for offline status or port issues.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -96,7 +91,7 @@ export class Home {
       title: 'Update the driver',
       description: [
         'Install the latest compatible printer driver.',
-        'Reinstall only after completing earlier steps to avoid repeated work.',
+        'Reinstall only after completing earlier steps.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -105,7 +100,7 @@ export class Home {
       title: 'Test and note errors',
       description: [
         'Print a test page to verify the fix.',
-        'If an error code appears, note it for further troubleshooting.',
+        'If an error code appears, note it.',
       ],
       subDescription: 'After this step, try printing a test page.'
     },
@@ -115,11 +110,23 @@ export class Home {
     this.activeStep = this.activeStep === id ? 0 : id;
   }
 
-  brands = ['HP', 'Epson', 'Canon', 'Brother'];
+  // BRAND SELECT
+  brands = ['HP', 'Canon', 'Epson', 'Brother'];
   selectedBrand = 'HP';
 
   selectBrand(brand: string) {
     this.selectedBrand = brand;
+  }
+
+  // POPUP CONTROL
+  showPopup = false;
+
+  openPopup() {
+    this.showPopup = true;
+  }
+
+  closePopup() {
+    this.showPopup = false;
   }
 
   testimonials = [
@@ -139,25 +146,26 @@ export class Home {
       name: 'Michael C.',
       role: 'Small Business',
       initial: 'M',
-      text: 'After an update my driver broke. They guided me through a clean reinstall and everything worked again.',
+      text: 'After an update my driver broke. They guided me through reinstall and everything worked.',
     },
     {
       name: 'Emily R.',
       role: 'Home User',
       initial: 'E',
-      text: 'Patient and easy to follow. I’m not technical, but the directions were super clear.',
+      text: 'Patient and easy to follow. Directions were super clear.',
     },
     {
       name: 'Priya S.',
       role: 'Student',
       initial: 'P',
-      text: 'Error code + paper jam issue fixed quickly. Really helpful and efficient.',
+      text: 'Error code + paper jam issue fixed quickly.',
     },
     {
       name: 'Ahmad K.',
       role: 'Retail Store',
       initial: 'A',
-      text: 'We print daily. The guidance saved us time and got us back to work fast.',
+      text: 'The guidance saved us time and got us back to work fast.',
     },
   ];
+
 }
