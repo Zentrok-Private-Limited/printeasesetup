@@ -37,7 +37,7 @@ export class Home {
       heroImage: '/brother-printer.png'
     }
   ];
-
+// ------------------- follow steps -------------------
   activeStep = 1;
 
   steps = [
