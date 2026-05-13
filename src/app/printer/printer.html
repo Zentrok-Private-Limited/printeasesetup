@@ -198,7 +198,7 @@
                 : 'Check Wifi on both ends.'
             }}
           </span>
-          <a href="#" class="text-blue-600 font-medium">Retry</a>
+          <a href="#" class="text-blue-600 font-medium" (click)="goToErrorStep($event)"> Retry </a>
         </div>
 
         <div class="flex justify-between items-center px-4 py-3">
@@ -250,7 +250,7 @@
             <div
               class="w-16 h-16 border-[6px] border-red-600 rounded-full flex items-center justify-center relative"
             >
-              <div class="w-14 h-1.5  bg-red-600 rotate-45"></div>
+              <div class="w-14 h-1.5 bg-red-600 rotate-45"></div>
 
               <span class="absolute text-[10px] font-bold text-red-600 top-4"> ERROR </span>
             </div>

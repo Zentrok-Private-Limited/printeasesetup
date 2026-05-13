@@ -83,6 +83,20 @@ export class Printer {
     this.setStep(this.step + 1);
   }
 
+  async goToErrorStep(event: Event) {
+
+  event.preventDefault();
+
+  this.progress = 10;
+  this.detectText = "Gathering information about your devices...";
+
+  this.step = 7;
+  this.cd.detectChanges();
+
+  await this.startDetectSequence();
+
+}
+
   // 👇 USB / WIFI select hone par call hoga
   selectConnection(type: string) {
     this.connectionType = type;
@@ -184,3 +198,4 @@ export class Printer {
   }
 
 }
+
